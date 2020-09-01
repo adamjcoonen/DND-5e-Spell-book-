@@ -1,10 +1,16 @@
 var mongoose = require('mongoose');
 
-let spellBooksSchema = new ({
+let spellBookSchema = new mongoose.Schema({
     class: String,
     level:  String
-    
 
+
+})
+
+let characterSchema = new mongoose.Schema({
+    name: String,
+    class1: String,
+    class2: String
 })
 
 let playerSchema = new mongoose.Schema({
@@ -17,4 +23,4 @@ let playerSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Player', plauyerSchema)
+module.exports = mongoose.model('Player', playerSchema)

@@ -1,9 +1,30 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
+var passport = require('passport');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// The root route renders our only view
+router.get('/', function(req, res) {
+  res.redirect('/');
+});
+
+// User wants to log in
+router.get('/auth/google', passport.authenticate(
+  'google',
+  { scope: ['profile', 'email'] }
+));
+
+// Google OAuth callback route
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/player',
+    failureRedirect: '/player',
+  }
+));
+
+// Logging out
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/player');
 });
 
 module.exports = router;
