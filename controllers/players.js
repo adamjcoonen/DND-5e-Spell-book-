@@ -21,6 +21,10 @@ function index(req, res, next) {
     });
   }
   
-function addSpellbook(req, res){
+function addSpellbook(req, res , next){
+    req.user.spellBooks.push(req.body);
+    req.user.save(function(err){
+        res.redirect('/');
+    })
 
 }

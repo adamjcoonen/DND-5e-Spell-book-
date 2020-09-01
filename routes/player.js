@@ -3,7 +3,7 @@ var router = express.Router();
 let playerCtrl = require('../controllers/players');
 
 
-router.get('/', playerCtrl.index)
+router.get('/players', playerCtrl.index)
 
 // the 
 router.post('/', isLoggedIn, playerCtrl.addSpellbook)
