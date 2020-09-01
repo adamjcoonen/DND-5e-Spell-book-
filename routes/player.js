@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
+let playerCtrl = require('/controllers/players');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+router.get('/player', playerCtrl.index)
+
+// the player router
+router.post('/facts', isLoggedIn, playerCtrl.addDetail)
+
+
+
+
+
+
 
 module.exports = router;
+
