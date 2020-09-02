@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
-app.use('/players', playersRoutes);
+app.use('/', playersRoutes);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

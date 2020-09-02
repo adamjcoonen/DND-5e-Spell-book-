@@ -7,7 +7,7 @@ const Player = require('../models/player')
 
 // 
 router.get('/', function(req, res) {
-  Player.findById(req.params.id,function(err, player){
+  Player.findById(req.params.id, function(err, player){
     console.log('Looking for the player', player)
     res.render('index',{
       title: "Spellbook"

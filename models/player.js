@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 let spellBookSchema = new mongoose.Schema({
     class: String,
