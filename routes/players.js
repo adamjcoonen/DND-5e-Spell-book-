@@ -5,7 +5,7 @@ const playerCtrl = require('../controllers/players');
 
 // router.get('index', playerCtrl.index)
 
-// router.post('/players', isLoggedIn, playerCtrl.addcharacter)
+router.post('/players', isLoggedIn, playerCtrl.addcharacter)
 
 
 

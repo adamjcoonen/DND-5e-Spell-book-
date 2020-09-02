@@ -4,7 +4,7 @@ const Player = require('../models/player');
 
 module.exports = {
     // index,
-    // addcharacter
+    addcharacter
     // addPlayerData
 }
 
@@ -19,10 +19,10 @@ module.exports = {
 
 
 
-// function addcharacter(req, res , next){
-//     req.user.characer.push(req.body);
-//     req.user.save(function(err){
-//         res.redirect('/');
-//     })
+function addcharacter(req, res , next){
+    req.user.characer.push(req.body);
+    req.user.save(function(err){
+        res.redirect('/');
+    })
 
-// }
+}
