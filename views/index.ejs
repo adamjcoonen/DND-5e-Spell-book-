@@ -1,18 +1,22 @@
-<!DOCTYPE html>
+<%- include('./partials/header') %>
+
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Welcome to Spellbook</h1>
+    <body>
+    <h1>Welcome to Spellbook</h1><br>
+    <h4>user-name</h4>
     <p>Select your characters Spellbook</p>
-      <ul>
-        <li>char 1</li>
-        <li>char 2</li>
-        <li>char 3</li>
-        <li>char 4</li>
-      </ul>
+     <!-- <ul>
+        <% //if (player.character.length > 0) { %>
+        
+        <% //player.character.forEach(function(char){ %>
+          <li><%=// char.name %></li>
+        </ul>
+      <% // }) %> 
+      <% //} else { %> 
+      
+        <h4>No Characters to Display</h4>
+     // <% // } %> */ -->
+      
       <a href="">Add a spell book</a>
   </body>
 </html>

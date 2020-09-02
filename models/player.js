@@ -11,13 +11,15 @@ let characterSchema = new mongoose.Schema({
     name: String,
     class1: String,
     class2: String
+},{
+    timestamps: true
 })
 
 let playerSchema = new mongoose.Schema({
     name: String,
     email: String,
     avatar: String,
-    spellBooks: [spellBookSchema],
+    character: [characterSchema],
     googleId: String,
 }, {
     timestamps: true

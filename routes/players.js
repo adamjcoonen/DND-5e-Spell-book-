@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
-let playerCtrl = require('../controllers/players');
+const playerCtrl = require('../controllers/players');
 
 
 router.get('/players', playerCtrl.index)
 
-// the 
-router.post('/', isLoggedIn, playerCtrl.addSpellbook)
+// router.post('/players', isLoggedIn, playerCtrl.addcharacter)
 
 
 

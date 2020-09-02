@@ -9,12 +9,12 @@ passport.use(new GoogleStrategy({
 }, function (accessToken, refreshToken, profile, cb) {  // Verify CB
   // A user has logged in via Google OAuth
   console.log(profile);
-  Player.findOne({ googleId: profile.id }, function (err, player) {
+  Player.findOne({ googleId: profile.id }, function (err, user) {
     if (err) return cb(err);
-    if (player) {
-      return cb(null, player);
+    if (user) {
+      return cb(null, user);
     } else {
-      // for creating a new player
+      // We have a new user!
       const newPlayer = new Player({
         name: profile.displayName,
         email: profile.emails[0].value,
@@ -29,12 +29,12 @@ passport.use(new GoogleStrategy({
   });
 }));
 
-passport.serializeUser(function(player, done) {
-  done(null, player.id);
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  Player.findById(id, function(err, player) {
-    return done(err, player);
+  Player.findById(id, function(err, user) {
+    return done(err, user);
   });
 });
