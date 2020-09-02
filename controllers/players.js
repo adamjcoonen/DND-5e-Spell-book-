@@ -1,19 +1,21 @@
 const Player = require('../models/player');
 
 
+
 module.exports = {
-    index,
+    // index,
     // addcharacter
+    // addPlayerData
 }
 
+
+// function addPlayerData(req, res, ne){
+//   console.log("yo what up")
+// }
 function index(req, res, next) {
-    console.log(req.query)
-    const playerQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {}
-    Player.find(modelQuery).exec(function(err, player){
-      if (err) return next(err);
-      // console.log(res.player)
-      })
-    }
+   
+    })
+      }
 
 
 

@@ -3,11 +3,15 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const Player = require('../models/player')
 
-// The root route renders our only view
+// 
 router.get('/', function(req, res) {
-res.render('index',{
-  title: "Spellbook"
+  Player.findById(req.params.id,function(err, player){
+    console.log('Looking for the player', player)
+    res.render('index',{
+      title: "Spellbook"
+    })
 })
 });
 
