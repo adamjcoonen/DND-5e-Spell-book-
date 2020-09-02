@@ -12,10 +12,10 @@ module.exports = {
 // function addPlayerData(req, res, ne){
 //   console.log("yo what up")
 // }
-function index(req, res, next) {
+// function index(req, res, next) {
    
-    })
-      }
+    
+//       }
 
 
 
