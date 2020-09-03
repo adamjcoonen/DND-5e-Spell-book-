@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const playerCtrl = require('../controllers/players');
+const playerCtrl = require('../controllers/players.js');
 
 
 router.get('/players', playerCtrl.indexChar)
-// router.post('index', playerCtrl.createchar)
+router.post('/characters/newChar', playerCtrl.createChar)
 // router.get('/newChar',isLoggedIn, playerCtrl.addCharacter) 
-router.get('player', playerCtrl.show) 
+router.get('/characters/newChar', playerCtrl.show) 
 
 
-// router.post('/players', isLoggedIn, playerCtrl.addcharacter)
+// router.post('/characters/newChar', isLoggedIn, playerCtrl.addCharacter)
 
 
 

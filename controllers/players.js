@@ -1,16 +1,17 @@
 const Player = require('../models/player');
+const Character = require('../models/character');
 
 
 module.exports = {
     indexChar,
     // addCharacter,
-    // createChar,
+    createChar,
     show
 }
 
 function indexChar(req, res) {
-    Player.find(function(err, ) {
-      res.render("playlists/index", { title: "All playlists", playlists });
+    Character.find(function(err, char) {
+      res.render("players/index", { title: "", name });
     });
   }
 // render the new character page
@@ -18,20 +19,26 @@ function indexChar(req, res) {
 //     res.render('characters/newChar', { title: "New Character"})
 // }
 
-// function createChar(req, res , next){
-//     const newCharacter = new Character(req.body);
-//     newCharacter.user = req.user_id;
-//     newCharacter.save(function(err){
-//         if (err) return render('characters/new', {title: "New Character" })
-//         console.log(newCharacter,'!!!!!!')
 
-//         res.redirect('/');
-//     })
-// }
+function createChar(req, res, next) {
+    let newChar = new Character()
+    newChar.save(function(err){
+        console.log(newChar)
+    Player.findById(req.user._id, function(err, player){
+        player.character.push(newChar._id)
+        player.save(function(err){
+            console.log("character",newChar)
+            console.log("player",player)
+            res.render('/players', { name: "pony"});
+    })
+  })
+    })
+}
 
 function show(req, res){
-    Player.findById(req.body.id, function(err, player){
-        res.render('players', {name: req.user })
+    console.log('show is firing')
+    Character.findById(req.body.id, function(err, player){
+        res.render('characters/newChar', {name: req.params.user, title: 'New Character' })
     })
 }
 
