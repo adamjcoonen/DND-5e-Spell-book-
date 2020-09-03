@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function indexChar(req, res) {
-    Player.find(function(err, playlists) {
+    Player.find(function(err, ) {
       res.render("playlists/index", { title: "All playlists", playlists });
     });
   }
