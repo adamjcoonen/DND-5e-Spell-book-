@@ -3,26 +3,26 @@
 <html>
     <body>
     <h1>Welcome to Spellbook</h1><br>
-    <h4> <%= name.name%> </h4>
+    <h4> <%= name.name %> </h4>
     <p>Select your Characters</p>
-    <% if( name.character.length > 0) { %> 
+    <% //if( name.character.length > 0) { %> 
      <tr>
        <th>Character Name</th>
        <th>Character Class</th>
      </tr>
-     <% name.forEach(function(char){ %>
+     <%// name.forEach(function(char){ %>
         <tr>
             <td>
-              <% char.name  %> 
-              <% char.class  %> 
+              <% //char.name  %> 
+              <% //char.class  %> 
             </td>
         </tr>
-        <%})%>
-        <% }else {%>
+        <%//})%>
+        <% //}else {%>
           <h4>You Don't Have Any characters</h4>
-          <% } %>
+          <% //} %>
         
         
-        <a href="characters/newChar">Add new Character</a></nav>
+        <a href="/characters/newChar">Add new Character</a></nav>
   </body>
 </html>

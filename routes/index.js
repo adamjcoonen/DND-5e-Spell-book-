@@ -8,8 +8,8 @@ const Player = require('../models/player');
 
 // 
 router.get('/', function(req, res) {
-  Player.findById(req.body.id, function(err, player){
-    console.log('Looking for the player', player)
+  Player.findById(req.body.id, function(err, name){
+    console.log('Looking for the player', name)
     res.render('players',{
       title: "Spellbook",
       name: req.user

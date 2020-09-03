@@ -3,10 +3,10 @@ var router = express.Router();
 const playerCtrl = require('../controllers/players');
 
 
-// router.get('/players', playerCtrl.index)
+router.get('/players', playerCtrl.indexChar)
 // router.post('index', playerCtrl.createchar)
-router.get('players', playerCtrl.addCharacter) 
-router.get('players', playerCtrl.show) 
+// router.get('/newChar',isLoggedIn, playerCtrl.addCharacter) 
+router.get('player', playerCtrl.show) 
 
 
 // router.post('/players', isLoggedIn, playerCtrl.addcharacter)
