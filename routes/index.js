@@ -1,16 +1,20 @@
 // var router = require('express').Router();
 // var passport = require('passport');
-const express = require('express');
-const router = express.Router();
+var router = require('express').Router();
 const passport = require('passport');
-const Player = require('../models/player')
+
+const Player = require('../models/player');
+
 
 // 
 router.get('/', function(req, res) {
-  Player.findById(req.params.id, function(err, player){
+  Player.findById(req.body.id, function(err, player){
     console.log('Looking for the player', player)
-    res.render('index',{
-      title: "Spellbook"
+    res.render('players',{
+      title: "Spellbook",
+      name: req.user
+        
+      
     })
 })
 });
@@ -35,5 +39,7 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
+
+
 
 module.exports = router;

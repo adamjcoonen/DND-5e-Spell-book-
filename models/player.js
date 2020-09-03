@@ -1,22 +1,23 @@
 var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let spellBookSchema = new mongoose.Schema({
+let spellBookSchema = new Schema({
     class: String,
     level:  String
 
 
 })
 
-let characterSchema = new mongoose.Schema({
+let characterSchema = new Schema({
     name: String,
     class1: String,
     class2: String
+    
 },{
     timestamps: true
 })
 
-let playerSchema = new mongoose.Schema({
+let playerSchema = new Schema({
     name: String,
     email: String,
     avatar: String,

@@ -4,7 +4,9 @@ const playerCtrl = require('../controllers/players');
 
 
 // router.get('/players', playerCtrl.index)
-router.post('/', playerCtrl.addcharacter)
+// router.post('index', playerCtrl.createchar)
+router.get('players', playerCtrl.addCharacter) 
+router.get('players', playerCtrl.show) 
 
 
 // router.post('/players', isLoggedIn, playerCtrl.addcharacter)
