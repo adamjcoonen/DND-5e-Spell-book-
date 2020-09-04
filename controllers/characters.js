@@ -33,7 +33,6 @@ function edit(req, res){
 }
 
 function update(req, res){
-    console.log(req.params.id,"mother fucking update")
     Character.findByIdAndUpdate(req.params.id, req.body, function (err,char){
         if (err) {
                 res.render('characters/edit', {char, title: "Edit Character", })
@@ -66,7 +65,6 @@ function createChar(req, res){
 
      
         function deleteChar(req, res) {
-            console.log('delete fucker!')
             Character.findByIdAndDelete(req.params.id, function (err) {
                 res.redirect('/characters');
             });

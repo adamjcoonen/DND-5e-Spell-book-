@@ -1,6 +1,6 @@
 const Player = require('../models/player');
 const Character = require('../models/character');
-const SpellBooks = require('../models/spellbooks')
+const Spellbooks = require('../models/spellbooks')
 
 
 module.exports = {
@@ -33,30 +33,24 @@ module.exports = {
         level: req.body.level,
         restrictedSchools: req.body.restricted
     } 
-    const newBook = new SpellBooks(nBook)
+    const newBook = new Spellbooks(nBook)
        newBook.save(function(err) {
            if(err) {
                return res.render('characters/show',{
                    characterId: req.params.id,
-                   title: 'Add spellbook'
-               })
-            }else {
+                   title: 'Add spellbook',
+                   name
+            })
+         } else {
                 res.redirect(`/characters/${req.params.id}/show`)
             }
-            console.log("yeah new book", newBook)
+            console.log("yeah new book", book)
        })
     }
+
+
     function index(req, res){
+        console.log('index is firing')
     
-        let bookQuery = req.query.id ? {book :new RegExp(req.params.id,'i')} : {}
-        SpellBooks.find(bookQuery, function(err, book){
-            if (err){
-                res.redirect('/characters/show')
-            }
-            res.render('/characters/index', {
-                book: book
-            })
-            console.log(book)
-        })
 
     }

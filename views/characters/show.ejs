@@ -2,7 +2,7 @@
 <h1> Your Spell Books</h1>
 
 <h2><%= char.name %></h2>
-<ul id="spellbookClass">
+<ul>
     
     
     <li><%= char.class1 %></li>
@@ -28,7 +28,8 @@
     New Spell: <input type="text" name="name">
     
     <button class="submit-button" type="submit">Submit</button></form>
-
+<br>
+<br>
     <table style="width:100%">
         <tr>
           <th>SpellBook type</th>
@@ -36,8 +37,8 @@
           <th>Restricted Schools</th>
         </tr>
         <% book.forEach(function(b) { %>
-            <td><%= b.name %></td>
-            <td><%= b.maxlevel %></td>
+            <td><%=b.name %></td>
+            <td><%=b.maxlevel %></td>
             <td><%= b.restrictedSchool %></td>
               </form>
           </td>
