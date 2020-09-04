@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 
-
+<h2><%= title %></h2>
 
 <h1>Your Spellasting characters and their spellbooks</h1>
 
@@ -12,20 +12,23 @@
       <th>Class 2</th>
       <th>Class 3</th>
     </tr>
-    <% //characters.forEach(function(char) { %>
-    <tr <%-// char.departs <= new Date() ? 'class="passed"' : '' %>>
-        <td><%=// char.name %></td>
-        <td><%= //char.class1 %></td>
-        <td><%= //char.class2 %></td>
-        <td><%=// char.class3 %></td>
-        <td><a href="/characters/<%=//char._id%>">Details</a>&nbsp;|&nbsp;<a href="/characters/<%=//char._id%>/edit">Edit</a></td>
+    <% characters.forEach(function(char) { %>
+    <tr <%- char.departs <= new Date() ? 'class="passed"' : '' %>>
+        <td><%= char.name %></td>
+        <td><%= char.class1 %></td>
+        <td><%= char.class2 %></td>
+        <td><%= char.class3 %></td>
+        <td><a href="/characters/<%=char._id%>">Details</a>&nbsp;|&nbsp;<a href="/characters/<%=char._id%>/edit">Edit</a></td>
         <td>
-          <form action="/characters/<%=//char._id%>?_method=DELETE" method="POST">
+          <form action="/characters/<%=char._id%>?_method=DELETE" method="POST">
             <button class="red-button" type="submit">X</button>
           </form>
       </td>
     </tr>
-    <%//})%>
+    <%})%>
   </table>
 
 <a href="/characters/newChar">Add new Character</a></nav>
+
+
+   </form>

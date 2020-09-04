@@ -1,8 +1,15 @@
+
+
+
 var router = require('express').Router();
 const passport = require('passport');
-const characterCtrl = require('../controllers/characters')
+const characterCtrl = require('../controllers/characters.js')
 
-router.get('/', characterCtrl.index);
-router.get('/characters/newChar', characterCtrl.show) 
+router.get('/characters', characterCtrl.index);
+router.get('/characters/newChar', characterCtrl.show)
+router.post('/characters', characterCtrl.createChar)
+router.delete('/characters/:id', characterCtrl.delete)
+router.get('/characters/:id/edit', characterCtrl.edit)
+
 
 module.exports = router;
