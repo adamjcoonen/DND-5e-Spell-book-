@@ -8,13 +8,14 @@ let characterSchema = new Schema({
     class2: String,
     class3: String,
     player: {type: Schema.Types.ObjectId, ref: 'player'},
-    spellbooks: [
+    spellbook: [
         {
-        type: Schema.Types.ObjectId,
-        ref: "Spellbook",
-        }
-    ]
-},{
+          type: Schema.Types.ObjectId,
+          ref: "spellbook",
+        },
+      ],
+},
+    {
     timestamps: true
 })
     module.exports = mongoose.model('Character', characterSchema)

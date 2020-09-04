@@ -33,11 +33,12 @@ function edit(req, res){
 }
 
 function update(req, res){
-    Character.findByIdAndUpdate(req.params.id, function (err,char){
+    console.log(req.params.id,"mother fucking update")
+    Character.findByIdAndUpdate(req.params.id, req.body, function (err,char){
         if (err) {
-                res.render('/characters/edit', {char, title: "Edit Character", })
+                res.render('characters/edit', {char, title: "Edit Character", })
         }
-        res.redirect('/character')
+        res.redirect('/characters')
     })
 }
 

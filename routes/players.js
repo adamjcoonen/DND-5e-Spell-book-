@@ -3,7 +3,7 @@ var router = express.Router();
 const playerCtrl = require('../controllers/players');
 
 
-router.get('/characters', playerCtrl.show)
+// router.get('/characters', playerCtrl.show)
 // router.get('/newChar',isLoggedIn, playerCtrl.addCharacter) 
 
 
