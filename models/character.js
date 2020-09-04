@@ -6,6 +6,7 @@ let characterSchema = new Schema({
     name: String,
     class1: String,
     class2: String,
+    player: {type: Schema.Types.ObjectId, ref: 'user'},
     spellbooks: [
         {
         type: Schema.Types.ObjectId,

@@ -3,21 +3,15 @@
 var router = require('express').Router();
 const passport = require('passport');
 
-const Player = require('../models/player');
+
+
 
 
 // 
-router.get('/', function(req, res) {
-  Player.findById(req.body.id, function(err, name){
-    console.log('get player data', name )
-    res.render('players',{
-      title: "Spellbook",
-      name: req.user
-        
-      
-    })
-})
+router.get('/', function(req, res,) {
+  res.render('players', { title: 'Dnd-5e-Spellbook', name: req.user });
 });
+
 
 // User wants to log in
 router.get('/auth/google', passport.authenticate(
@@ -29,8 +23,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
-    failureRedirect: '/',
+    successRedirect: '/characters',
+    failureRedirect: '/characters',
   }
 ));
 

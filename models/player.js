@@ -10,7 +10,7 @@ let playerSchema = new Schema({
     email: String,
     avatar: String,
     googleId: String, 
-    character: []
+    
 }, {
     timestamps: true
 });
