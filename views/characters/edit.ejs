@@ -3,10 +3,10 @@
     <h1> Edit Character</h1>
     <form action="/characters/<%=char._id%>?_method=PUT" method="POST" >
         
-    Character Name: <input type="text" <%= char.name  %>  name="name">
-    Class 1:<input <%= char.class1 %> type="text" name="class1">
-    Class 2: <input type="text" <%= char.class2 %> name="class2">
-    Class 3: <input type="text" <%= char.class3 %> name="class3">
+    Character Name: <input type="text"value="<%= char.name%>" <%= char.name  %>  name="name">
+    Class 1:<input <%= char.class1 %> type="text"value="<%= char.class1%>" name="class1">
+    Class 2: <input type="text"value="<%= char.class2%>" <%= char.class2 %> name="class2">
+    Class 3: <input type="text"value="<%= char.class3%>" <%= char.class3 %> name="class3">
     
     <button class="submit-button" type="submit">Submit</button></form>
     </form>

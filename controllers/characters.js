@@ -18,7 +18,7 @@ module.exports = {
 function index(req, res) {
     
     Character.find({'player': {$in: req.user._id}}, function(err, characters) {
-        res.render('characters/index', {characters, title: 'my characters'})
+        res.render('characters/index', {characters, title: `${req.user.name}'s characters`})
     });
     
 }

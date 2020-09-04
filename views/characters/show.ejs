@@ -16,7 +16,7 @@
 
 </ul>
 <form action="/characters/:id" method="POST" >
-    New SpellBook Class: <input type="text" name="name"><br>
+    New SpellBook Class: <input  type="text" name="name"><br>
     Highest SpellCast: <input type="text" name="level"><br>
     restricted: <input type="text" name="restricted">
     <button class="submit-button" type="submit">Submit</button></form>
@@ -27,5 +27,20 @@
 <form action="/characters/:id/show" method="POST" >
     New Spell: <input type="text" name="name">
     
-    
     <button class="submit-button" type="submit">Submit</button></form>
+
+    <table style="width:100%">
+        <tr>
+          <th>SpellBook type</th>
+          <th>Highest Level</th>
+          <th>Restricted Schools</th>
+        </tr>
+        <% book.forEach(function(b) { %>
+            <td><%= b.name %></td>
+            <td><%= b.maxlevel %></td>
+            <td><%= b.restrictedSchool %></td>
+              </form>
+          </td>
+        </tr>
+        <%})%>
+      </table>

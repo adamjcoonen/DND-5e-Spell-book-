@@ -2,7 +2,8 @@ body {
   text-align: center;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: chartreuse;
+  background-image: url('https://www.gamersdecide.com/sites/default/files/authors/u150693/best-background-for-every-class-12.jpg');
+  color: whitesmoke;
 }
 ul{
   list-style: none;
@@ -11,5 +12,6 @@ a {
   color: #00B7FF;
 }
 
-
-
+nav {
+ text-align: right;
+}

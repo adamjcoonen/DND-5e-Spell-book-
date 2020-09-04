@@ -5,7 +5,7 @@ const SpellBooks = require('../models/spellbooks')
 
 module.exports = {
     show,
-    // index
+    index,
     // createSpell,
     addBook
 }
@@ -18,7 +18,6 @@ module.exports = {
     
 
     function show(req, res){
-        console.log('motherfucking edit')
         Character.findById(req.params.id, function (err, char) {
             if (err) {
                 res.redirect('/characters')
@@ -46,4 +45,18 @@ module.exports = {
             }
             console.log("yeah new book", newBook)
        })
+    }
+    function index(req, res){
+    
+        let bookQuery = req.query.id ? {book :new RegExp(req.params.id,'i')} : {}
+        SpellBooks.find(bookQuery, function(err, book){
+            if (err){
+                res.redirect('/characters/show')
+            }
+            res.render('/characters/index', {
+                book: book
+            })
+            console.log(book)
+        })
+
     }
