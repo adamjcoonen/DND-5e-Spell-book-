@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<body>
+    <h1> Edit Character</h1>
+    <form action="/characters/<%=char.id%>?_method=PUT" method="POST" >
+        
+    Character Name: <input type="text" <%= char.name  %>  name="name">
+    Class 1:<input <%= char.class1 %> type="text" name="class1">
+    Class 2: <input type="text" <%= char.class2 %> name="class2">
+    Class 2: <input type="text" <%= char.class3 %> name="class3">
+    
+    <button class="submit-button" type="submit">Submit</button></form>
+    
+</body>
+</html>

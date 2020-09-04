@@ -9,7 +9,8 @@ module.exports = {
    show,
    createChar,
    delete: deleteChar,
-   edit
+   edit,
+   update
 }
 
 
@@ -23,20 +24,28 @@ function index(req, res) {
 }
 function edit(req, res){
     console.log('motherfucking edit')
-
-
+    Character.findById(req.params.id, function (err, char) {
+        if (err) {
+            res.redirect('/characters')
+        }
+        res.render('characters/edit', { char})
+    })
 }
-// function delete(req, res) {
-//     Character.findByIdAndDelete(req.params.id, function(err){
-//         res.redirect('/characters')
-//     })
-// }
+
+function update(req, res){
+    Character.findByIdAndUpdate(req.params.id, function (err,char){
+        if (err) {
+                res.render('/characters/edit', {char, title: "Edit Character", })
+        }
+        res.redirect('/character')
+    })
+}
 
 function show(req, res){
     console.log('show is firing')
     Character.findById(req.body.id, function(err, player){
         res.render('characters/newChar', 
-        {name: 'jo jo', title: 'New Character' })
+        {name: req.user.name, title: 'New Character' })
     })
 }
 
@@ -54,12 +63,7 @@ function createChar(req, res){
         }
 
 
-        // function deleteSet(req, res) {
-        //     Set.findByIdAndDelete(req.params.id, function(err, set) {
-        //       if(!set.createdBy.equals(req.user._id)) return res.redirect(`/sets/${set._id}`);
-        //       res.redirect('/');
-        //     });
-        //   }
+     
         function deleteChar(req, res) {
             console.log('delete fucker!')
             Character.findByIdAndDelete(req.params.id, function (err) {
