@@ -42,7 +42,7 @@ module.exports = {
                    name
             })
          } else {
-                res.redirect(`/characters/${req.params.id}/show`)
+                res.redirect(`characters/${req.params.id}/show`)
             }
             console.log("yeah new book", book)
        })
