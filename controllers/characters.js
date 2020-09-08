@@ -14,16 +14,14 @@ module.exports = {
 }
 
 
-// {'Character.player._id': req.params.id}
+
 function index(req, res) {
-    
     Character.find({'player': {$in: req.user._id}}, function(err, characters) {
         res.render('characters/index', {characters, title: `${req.user.name}'s characters`})
     });
     
 }
 function edit(req, res){
-    console.log('motherfucking edit')
     Character.findById(req.params.id, function (err, char) {
         if (err) {
             res.redirect('/characters')

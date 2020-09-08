@@ -44,13 +44,14 @@ module.exports = {
          } else {
                 res.redirect(`characters/${req.params.id}/show`)
             }
-            console.log("yeah new book", book)
        })
     }
 
 
-    function index(req, res){
-        console.log('index is firing')
+    function index(req, res) {
+        console.log('index has fired BOOOYAAA')
     
-
+        Spellbooks.find({'characters': {$in: req.characterId}}, function(err, book) {
+            res.render('characters/:id/show', {book})
+        });
     }

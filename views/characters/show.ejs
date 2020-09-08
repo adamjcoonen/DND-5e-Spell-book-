@@ -1,7 +1,6 @@
 <%- include('../partials/header') %>
-<h1> Your Spell Books</h1>
 
-<h2><%= char.name %></h2>
+<h2><%= char.name %>'s Spellbook</h2>
 <ul>
     
     
@@ -36,12 +35,12 @@
           <th>Highest Level</th>
           <th>Restricted Schools</th>
         </tr>
-        <% book.forEach(function(b) { %>
-            <td><%=b.name %></td>
-            <td><%=b.maxlevel %></td>
-            <td><%= b.restrictedSchool %></td>
+        <%// book.forEach(function(b) { %>
+            <td><%//=b.name %></td>
+            <td><%//=b.maxlevel %></td>
+            <td><%//= b.restrictedSchool %></td>
               </form>
           </td>
         </tr>
-        <%})%>
+        <%//})%>
       </table>
