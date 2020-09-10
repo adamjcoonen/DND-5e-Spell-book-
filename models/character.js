@@ -8,10 +8,10 @@ let characterSchema = new Schema({
     class2: String,
     class3: String,
     player: {type: Schema.Types.ObjectId, ref: 'player'},
-    spellbook: [
+    spellbooks: [
         {
           type: Schema.Types.ObjectId,
-          ref: "spellbook",
+          ref: "spellbooks",
         },
       ],
 },

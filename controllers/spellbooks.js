@@ -18,40 +18,55 @@ module.exports = {
     
 
     function show(req, res){
-        Character.findById(req.params.id, function (err, char) {
+        
+        Character.findById(req.params.id, function (err, charName) {
             if (err) {
                 res.redirect('/characters')
-            }
-            res.render('characters/show', { char})
-        })
-    }
+            } else{
+            res.render('characters/show', {charName: `${charName.name}`,
+                                            charId: `${charName.id}` })
+        }
+        console.log("This is the Char Name!!!")
+    })
+}
 
    function addBook(req,res){
-       console.log('add book')
        let nBook =  { 
-        class: req.body.name,
-        level: req.body.level,
-        restrictedSchools: req.body.restricted
+        class: req.body.class,
+        maxLevel: req.body.maxLevel,
+        restrictedSchools: req.body.restrictedSchools,
+        objId: req.params.id
     } 
     const newBook = new Spellbooks(nBook)
        newBook.save(function(err) {
            if(err) {
-               return res.render('characters/show',{
-                   characterId: req.params.id,
-                   title: 'Add spellbook',
-                   name
-            })
-         } else {
-                res.redirect(`characters/${req.params.id}/show`)
+            res.redirect(`/characters/${req.params.id}/show`)
+            console.log(nBook, "nbook redirect")
+            
+               } else {
+                console.log("it was a success!!!", newBook)
+                Character.findByIdAndUpdate(req.params.id, 
+                    { $push: {'spellbooks': {newBook:_id}}},function(err, char){
+                    console.log( 'The Char updated')
+
+                })
+                res.redirect(`/characters/${req.params.id}/show`)
             }
+            
+       })
+   }
+
+
+    function index(req, res){
+        console.log('Daaamn...index is firing')
+        Character.findById(req.params.id, function(err, name ){
+        if (err){
+            res.redirect(`/characters/${req.params.id}/show`)
+    }else{
+       return res.render(`/characters/${req.params.id}/show`,{
+           name: req.params.spellbooks.name,
+
        })
     }
-
-
-    function index(req, res) {
-        console.log('index has fired BOOOYAAA')
-    
-        Spellbooks.find({'characters': {$in: req.characterId}}, function(err, book) {
-            res.render('characters/:id/show', {book})
-        });
+})
     }
