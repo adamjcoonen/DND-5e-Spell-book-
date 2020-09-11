@@ -35,27 +35,26 @@ module.exports = {
         class: req.body.class,
         maxLevel: req.body.maxLevel,
         restrictedSchools: req.body.restrictedSchools,
-        objId: req.params.id
+        objId: req.params
     } 
     const newBook = new Spellbooks(nBook)
+    
        newBook.save(function(err) {
            if(err) {
             res.redirect(`/characters/${req.params.id}/show`)
-            console.log(nBook, "nbook redirect")
+            console.log(nBook, "nBook redirect")
             
-               } else {
-                console.log("it was a success!!!", newBook)
-                Character.findByIdAndUpdate(req.params.id, 
-                    { $push: {'spellbooks': {newBook:_id}}},function(err, char){
-                    console.log( 'The Char updated')
-
+            } else {
+            console.log("it was a success!!!", newBook)
+            Character.findById(req.params._id, req.body, function(err,char ){
+                req.body.spellbooks.push(newBook._id)
+                console.log("nBook:", nBook,'The Char updated')
+                    
                 })
                 res.redirect(`/characters/${req.params.id}/show`)
             }
-            
        })
-   }
-
+    }
 
     function index(req, res){
         console.log('Daaamn...index is firing')
