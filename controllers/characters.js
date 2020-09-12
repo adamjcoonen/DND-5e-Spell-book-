@@ -53,7 +53,7 @@ function createChar(req, res){
     newChar.player = req.user._id;
         newChar.save(function(err){
             if (err){
-                return res.render('/characters/new', {title: 'New Character',  })
+                return res.redirect('/characters/new', {title: 'New Character',  })
             }
             console.log('this is the new character',newChar)
             res.redirect('/characters')

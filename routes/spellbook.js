@@ -6,7 +6,7 @@ const spellbooksCtrl = require('../controllers/spellbooks');
 
 
 router.get('/characters/:id/show', spellbooksCtrl.show)
-router.post('/characters/:id/show', spellbooksCtrl.addBook)
+router.post('/spellbook/:id/create', spellbooksCtrl.addBook)
 router.post('/character/show', spellbooksCtrl.index)
 
 

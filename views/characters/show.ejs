@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 <h1> Your Spell Books</h1>
 
-<h2><%= charName %>' spellbooks</h2>
+<h2><%= charName.name %>' spellbooks</h2>
 <ul>
     
     
-    <li><%=//charName.class1 %></li>
-    <li><%=//charName.class2%></li>
-    <li><%=//charName.class3 %></li>
+    <li><%=charName.class1 %></li>
+    <li><%=charName.class2%></li>
+    <li><%=charName.class3 %></li>
     
 </ul>
 
@@ -15,9 +15,10 @@
     <li><h3>$Spells Availible$</h3></li>
 
 </ul>
-<form action="/characters/:id/show" method="POST" >
+
+<form action="/spellbook/<%= charName.id%>/create" method="POST" >
     New SpellBook Class: <input  type="text" name="class"><br>
-    Highest SpellCast: <input type="number" name="maxLevel"><br>
+    Highest SpellCast: <input type="number" name="maxlevel"><br>
     restricted: <input type="text" name="restrictedSchools">
     <button class="submit-button" type="submit">Submit</button></form>
 <br>
@@ -36,13 +37,13 @@
           <th>Highest Level</th>
           <th>Restricted Schools</th>
         </tr>
-        <h1><%=//charName.spellbooks%>Is here</h1>
-        <%// charName//forEach(function(b) { %>
-            <td><%=//b.name %></td>
-            <td><%=//b.maxlevel %></td>
-            <td><%= //b.restrictedSchool %></td>
+        <h1><%=charName.spellbooks%>Is here</h1>
+        <% charName.forEach(function(b) { %>
+            <td><%=b.name %></td>
+            <td><%=b.maxlevel %></td>
+            <td><%= b.restrictedSchool %></td>
               </form>
           </td>
         </tr>
-        <%//})%>
+        <%})%>
       </table>
