@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+
 <h1> Your Spell Books</h1>
 
 <h2><%= charName.name %>' spellbooks</h2>
@@ -6,7 +7,7 @@
     
     
     <li><%=charName.class1 %></li>
-    <li><%=charName.class2%></li>
+    <li><%=charName.class2 %></li>
     <li><%=charName.class3 %></li>
     
 </ul>
@@ -31,19 +32,31 @@
     <button class="submit-button" type="submit">Submit</button></form>
 <br>
 <br>
-    <table style="width:100%">
-        <tr>
+    <table style="width: 1000px;">
+        <th>
           <th>SpellBook type</th>
           <th>Highest Level</th>
           <th>Restricted Schools</th>
-        </tr>
-        <h1><%=charName.spellbooks%>Is here</h1>
-        <% charName.forEach(function(b) { %>
-            <td><%=b.name %></td>
-            <td><%=b.maxlevel %></td>
-            <td><%= b.restrictedSchool %></td>
-              </form>
-          </td>
-        </tr>
-        <%})%>
+        </th>
+        <tbody>
+            <tr>
+            <%if (charName.spellbooks.length > 0)  { %>
+            <%for (var dBeats in charName.spellbooks)  { %>
+
+                <td><%= bDeats.class %></td>
+                
+                
+            </tr>
+            <% } %>
+
+            <%} else { %>
+                <h3>There are no spellbooks yet</h3>
+            <% } %>
+        
+
+            </tbody>
       </table>
+    
+
+
+     

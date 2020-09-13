@@ -1,13 +1,14 @@
 const Player = require('../models/player');
 const Character = require('../models/character');
-const Spellbooks = require('../models/spellbooks')
+const Spellbooks = require('../models/spellbooks');
+const { render } = require('ejs');
 
 
 module.exports = {
     show,
     index,
     // createSpell,
-    addBook
+    addBook,
 }
 
 // function index(req, res) {
@@ -20,12 +21,15 @@ module.exports = {
     function show(req, res){
         
         Character.findById(req.params.id, function (err, charName) {
+            Spellbooks.findById(charName.spellbooks, function(err, bDeats){
+                console.log(bDeats)
             if (err) {
                 res.redirect('/characters')
             } else{
-            res.render('characters/show', {charName})
-        }
-        console.log("This is the Char Name!!!")
+                console.log('The is book details', bDeats)
+            res.render('characters/show', {charName, bDeats})       
+            }
+        })
     })
 }
 
@@ -58,15 +62,8 @@ module.exports = {
 }
 
     function index(req, res){
-        console.log('Daaamn...index is firing')
-        Character.findById(req.params.id, function(err, name ){
-        if (err){
-            res.redirect(`/characters/${req.params.id}/show`)
-    }else{
-       return res.render(`/characters/${req.params.id}/show`,{
-           name: req.params.spellbooks.name,
-
-       })
-    }
-})
+        Character.findById(req.params.id, function(err,charId ){
+        
+            console.log("charID:" ,charId)                
+        })
     }
