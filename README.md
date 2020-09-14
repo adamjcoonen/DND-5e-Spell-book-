@@ -25,12 +25,14 @@ I wanted to build a full stack app that ustilized the
 - be able to utilize the DnD 5th edition API to feed date into the app
 ## Wireframe:
 
-### Resources Used:
-* Inspiration of wirefram came from a talented mock up by Julian Herbst via dribble.com with link in the wireframe. 
+### Resources Used: 
 * Atlas to host MongoDB Cloud database to persist data
 * Heroku to create link to the app for deployment
-* GitHub for repositories and storage of data  
+* GitHub for repositories and storage of data
+  
 ### icebox
 -   expand the tools uses to magical itemes and other abilites
 -   add a dice rolling feature
 - ›
+# Give it A try right here!
+http://dnd-53-spellbook.herokuapp.com/characters/5f5d00a5dd90bc35d55dcda7/show
