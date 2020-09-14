@@ -32,8 +32,7 @@
     <button class="submit-button" type="submit">Submit</button></form>
 <br>
 <br>
-    <table style="width: 1000px;">
-        <th>
+    <table style="width: 500px; align-content: center;">
           <th>SpellBook type</th>
           <th>Highest Level</th>
           <th>Restricted Schools</th>
@@ -44,8 +43,6 @@
                     <% if ( charName.spellbooks.includes(bd.id) == true ) { %>
                     
             <tr>
-            
-                
                 <td><%= bd.class %></td>
                 <td><%= bd.maxlevel %></td>
                 <td><%= bd.restrictedSchools %></td>

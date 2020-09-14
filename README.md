@@ -35,4 +35,4 @@ I wanted to build a full stack app that ustilized the
 -   add a dice rolling feature
 - ›
 # Give it A try right here!
-http://dnd-53-spellbook.herokuapp.com/characters/5f5d00a5dd90bc35d55dcda7/show
+https://dnd-53-spellbook.herokuapp.com/
