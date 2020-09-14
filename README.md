@@ -1,5 +1,25 @@
 # You DnD Spellbook tool
 
+## Screenshots
+
+</br>
+
+![app-screenshot](https://imgur.com/H7wyPUc.png)
+</br>
+
+![app-screenshot](https://imgur.com/qCzvJsw.png)
+</br>
+
+![app-screenshot](https://imgur.com/hO50LKM.png)
+</br>
+
+![app-screenshot](https://imgur.com/cCETgni)
+</br>
+
+![app-screenshot](https://imgur.com/WU1hfKw)
+
+
+
 
 ### _Getting started:_
 I wanted to be able to have an easy access way to get spell information while playing the classic game dnd. instead of paging through books, with this App the user can have a phone, tablet or computer near them and reduce the need to wate time paging through books
