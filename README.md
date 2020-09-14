@@ -24,7 +24,7 @@ I wanted to build a full stack app that ustilized the
 -   be able to a delete, create, read and edit spellbooks 
 - be able to utilize the DnD 5th edition API to feed date into the app
 ## Wireframe:
-
+See here for the Trello Planning: https://trello.com/b/oa7qJ1tE/dnd-helper-tool
 ### Resources Used: 
 * Atlas to host MongoDB Cloud database to persist data
 * Heroku to create link to the app for deployment
