@@ -6,15 +6,10 @@ const Schema = mongoose.Schema;
 
 
 let spellBookSchema = new Schema({
-    class: String,
-    maxLevel: Number,
-   restrictedSchools: {
-        type: String,
-        ref: "spellbook",
-        enum: ['Transmutation', 'Evocation', 'Conjuration', 'Abjuration', 'Necromancy','Transmutation'],
-      },
-    spellsKnown: Array
-    
+  class: String,
+  maxLevel: Number,
+  restrictedSchools: String,
+  spellsKnown: Array
 })
 
 module.exports = mongoose.model('Spellbooks', spellBookSchema)
