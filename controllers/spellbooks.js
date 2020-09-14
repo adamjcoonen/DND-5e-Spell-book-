@@ -18,20 +18,42 @@ module.exports = {
     // });
     
 
+//     function show(req, res){
+        
+//         Character.findById(req.params.id, function (err, charName) {
+//             Spellbooks.findById(charName.spellbooks, function(err, bDeats){
+//                 console.log(bDeats)
+//             if (err) {
+//                 res.redirect('/characters')
+//             } else{
+//                 console.log('The is book details', bDeats)
+//             res.render('characters/show', {charName, bDeats})       
+//             }
+//         })
+//     })
+// }
     function show(req, res){
         
         Character.findById(req.params.id, function (err, charName) {
-            Spellbooks.findById(charName.spellbooks, function(err, bDeats){
+            Spellbooks.find(charName[{}], function(err, bDeats){
                 console.log(bDeats)
             if (err) {
                 res.redirect('/characters')
             } else{
                 console.log('The is book details', bDeats)
-            res.render('characters/show', {charName, bDeats})       
+            res.render('characters/show', {charName, bDeats})
+            console.log('this is the char name:',charName)
+            console.log('This is b deats:', bDeats)       
             }
         })
     })
 }
+
+
+
+
+
+
 
    function addBook(req,res){
        let nBook =  { 

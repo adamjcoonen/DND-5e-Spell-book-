@@ -7,9 +7,7 @@ const Schema = mongoose.Schema;
 
 let spellBookSchema = new Schema({
     class: String,
-    maxLevel:  {
-      type: Number
-    },
+    maxLevel: Number,
    restrictedSchools: {
         type: String,
         ref: "spellbook",

@@ -38,25 +38,30 @@
           <th>Highest Level</th>
           <th>Restricted Schools</th>
         </th>
-        <tbody>
+        <% if (charName.spellbooks.length > 0 ){ %>
+        <tbody style="text-align: center;">
+                <% bDeats.forEach(function(bd){ %> 
+                    <% if ( charName.spellbooks.includes(bd.id) == true ) { %>
+                    
             <tr>
-            <%if (charName.spellbooks.length > 0)  { %>
-            <%for (var dBeats in charName.spellbooks)  { %>
-
-                <td><%= bDeats.class %></td>
+            
                 
-                
-            </tr>
+                <td><%= bd.class %></td>
+                <td><%= bd.maxlevel %></td>
+                <td><%= bd.restrictedSchools %></td>
             <% } %>
+            <% }) %> 
+            </tr>
+        </tbody>
 
             <%} else { %>
                 <h3>There are no spellbooks yet</h3>
             <% } %>
         
 
-            </tbody>
+           
       </table>
     
 
 
-     
+   
