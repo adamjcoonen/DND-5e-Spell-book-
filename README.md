@@ -13,10 +13,10 @@
 ![app-screenshot](https://imgur.com/hO50LKM.png)
 </br>
 
-![app-screenshot](https://imgur.com/cCETgni)
+![app-screenshot](https://imgur.com/cCETgni.png)
 </br>
 
-![app-screenshot](https://imgur.com/WU1hfKw)
+![app-screenshot](https://imgur.com/WU1hfKw.png)
 
 
 
