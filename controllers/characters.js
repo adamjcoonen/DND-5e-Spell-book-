@@ -40,7 +40,6 @@ function update(req, res){
 }
 
 function show(req, res){
-    console.log('show is firing')
     Character.findById(req.body.id, function(err, player){
         res.render('characters/newChar', 
         {name: req.user.name, title: 'New Character' })
