@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 
 
 
+
+
 let spellBookSchema = new Schema({
   class: String,
   maxLevel: Number,

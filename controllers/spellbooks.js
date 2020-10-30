@@ -1,12 +1,15 @@
 const Player = require('../models/player');
 const Character = require('../models/character');
 const Spellbooks = require('../models/spellbooks');
+const { request } = require('express');
+const spellURL = 'https://www.dnd5eapi.co/api/spells='
 
 
 module.exports = {
     show,
     index,
     addBook,
+    listSpells
 }
 
 
@@ -23,6 +26,9 @@ module.exports = {
     })
 }
 
+function listSpells(req,res){
+    request(sp)
+}
 
 
 

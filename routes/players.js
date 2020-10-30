@@ -13,10 +13,10 @@ const playerCtrl = require('../controllers/players');
 
 
 // This function checks authentication and status of 'Player'
-function isLoggedIn(req, res, next) {
-  if ( req.isAuthenticated() ) return next();
-  res.redirect('/auth/google');
-}
+// function isLoggedIn(req, res, next) {
+//   if ( req.isAuthenticated() ) return next();
+//   res.redirect('/auth/google');
+// }
 
 
 
