@@ -1,34 +1,41 @@
 const Player = require('../models/player');
 const Character = require('../models/character');
 const Spellbooks = require('../models/spellbooks');
-const { request } = require('express');
-const spellURL = 'https://www.dnd5eapi.co/api/spells='
+const request = require('request');
+const { query } = require('express');
+const spellURL = 'https://www.dnd5eapi.co/api/spells'
+
 
 
 module.exports = {
     show,
     index,
     addBook,
-    listSpells
+    // listSpells
 }
+
+
+
+
+
 
 
     function show(req, res){
-        
+            console.log("list spells is firing ")
+            request(spellURL, function(err, response, body) {
+                const spells = JSON.parse(body);
         Character.findById(req.params.id, function (err, charName) {
-            Spellbooks.find(charName[{}], function(err, bDeats){
+            Spellbooks.find(charName[{}], function(err, bDeats){ 
             if (err) {
                 res.redirect('/characters')
             } else{
-            res.render('characters/show', {charName, bDeats})
-            }
-        })
-    })
-}
+            res.render('characters/show', {charName, bDeats, spells}  )
+                }
+            })
+            })
+            })
+        }
 
-function listSpells(req,res){
-    request(sp)
-}
 
 
 
@@ -64,3 +71,5 @@ function listSpells(req,res){
             console.log("charID:" ,charId)                
         })
     }
+
+// here is where we add spells, this will call the api and push the api url into the spellbook 

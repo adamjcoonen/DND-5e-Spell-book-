@@ -9,9 +9,12 @@ const Schema = mongoose.Schema;
 
 let spellBookSchema = new Schema({
   class: String,
-  maxLevel: Number,
+  maxLevel: {
+      type: Number,
+      enum: [1,2,3,4,5,6,7,8,9]
+  },
   restrictedSchools: String,
-  spellsKnown: Array
+  spellsKnown: {type: Schema.Types.Object, ref: 'spell'},
 })
 
 module.exports = mongoose.model('Spellbooks', spellBookSchema)

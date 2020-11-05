@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
@@ -21,7 +22,7 @@ require('./config/passport');
 var indexRoutes = require('./routes/index');
 var playersRoutes = require('./routes/players');
 var charactersRoutes = require('./routes/characters');
-var spellbooksRoutes = require('./routes/spellbook');
+var spellbooksRoutes = require('./routes/spellbooks');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +33,8 @@ app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: 'SEIRocks!',
