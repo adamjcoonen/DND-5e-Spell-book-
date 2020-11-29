@@ -23,6 +23,7 @@ var indexRoutes = require('./routes/index');
 var playersRoutes = require('./routes/players');
 var charactersRoutes = require('./routes/characters');
 var spellbooksRoutes = require('./routes/spellbooks');
+var spellbookRoutes = require('./routes/spellbook')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,7 +55,8 @@ app.use(function(req, res, next) {
 app.use('/', indexRoutes);
 app.use('/players', playersRoutes);
 app.use('/', charactersRoutes);
-app.use('/', spellbooksRoutes)
+app.use('/', spellbooksRoutes);
+app.use('/', spellbookRoutes);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

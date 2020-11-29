@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 
 
-
+const spellsKnownSchema = new Schema({
+  spellDets: {}
+})
 
 
 

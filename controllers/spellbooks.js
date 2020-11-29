@@ -1,16 +1,14 @@
-const Player = require('../models/player');
 const Character = require('../models/character');
 const Spellbooks = require('../models/spellbooks');
 const request = require('request');
-const { query } = require('express');
 const spellURL = 'https://www.dnd5eapi.co/api/spells'
 
 
 
 module.exports = {
     show,
-    index,
     addBook,
+    delete: deleteBook,
     // listSpells
 }
 
@@ -18,24 +16,29 @@ module.exports = {
 
 
 
+function deleteBook(req, res) {
+    Spellbooks.findByIdAndDelete(req.params.id, function(err) {
+        res.redirect(`${req.headers.referer}`);
+    });
+};
 
 
-    function show(req, res){
-            console.log("list spells is firing ")
-            request(spellURL, function(err, response, body) {
-                const spells = JSON.parse(body);
-        Character.findById(req.params.id, function (err, charName) {
-            Spellbooks.find(charName[{}], function(err, bDeats){ 
-            if (err) {
-                res.redirect('/characters')
-            } else{
-            res.render('characters/show', {charName, bDeats, spells}  )
-                }
-            })
-            })
-            })
+
+
+
+function show(req, res){
+    
+    
+Character.findById(req.params.id, function (err, charName) {
+    Spellbooks.find(charName[{}], function(err, bDeats){ 
+    if (err) {
+        res.redirect('/characters')
+    } else{
+    res.render('characters/show', {charName, bDeats}  )
         }
-
+    })
+    })
+}
 
 
 
@@ -45,7 +48,7 @@ module.exports = {
    function addBook(req,res){
        let nBook =  { 
         class: req.body.class,
-        maxLevel: req.body.maxLevel,
+        maxLevel: parseInt(req.body.maxLevel),
         restrictedSchools: req.body.restrictedSchools,
     } 
     const newBook = new Spellbooks(nBook)
@@ -65,11 +68,11 @@ module.exports = {
     })
 }
 
-    function index(req, res){
-        Character.findById(req.params.id, function(err,charId ){
-        
-            console.log("charID:" ,charId)                
-        })
-    }
+
+
+  
+
+      
+
 
 // here is where we add spells, this will call the api and push the api url into the spellbook 

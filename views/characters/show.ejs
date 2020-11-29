@@ -1,32 +1,17 @@
 <%- include('../partials/header') %>
-
-<h1> Your Spell Books</h1>
-
-<h2><%= charName.name %>' spellbooks</h2>
+<h1><%= charName.name %>' spellbooks</h1>
 <ul>
-    
-    
     <li><%=charName.class1 %></li>
     <li><%=charName.class2 %></li>
     <li><%=charName.class3 %></li>
     
 </ul>
 
-<ul id="spellsAvailible">
-    <li><h3>$Spells Availible$</h3></li>
 
-    <select name="spells" id="spellselecter">
-        <% for (let sp of spells.results ) { %> 
-            
-        <option value=<%=sp%>><%=JSON.stringify(sp.name).replace(`"`,``).replace(`"`,``)%> </option>
-        <% } %> 
-      </select>
-
-</ul>
 
 <form action="/spellbooks/<%= charName.id%>/create" method="POST" >
     New SpellBook Class: <input  type="text" name="class"><br>
-    Highest SpellCast: <input type="number" name="maxlevel"><br>
+    Highest SpellCast: <input type="number" name="maxLevel"><br>
     restricted: <input type="text" name="restrictedSchools">
     <button class="submit-button" type="submit">Submit</button></form>
 <br>
@@ -49,12 +34,11 @@
         <tbody style="text-align: center;">
                 <% bDeats.forEach(function(bd){ %> 
                     <% if ( charName.spellbooks.includes(bd.id) == true ) { %>
-                    
             <tr>
-                <td><%= bd.class %></td>
-                <td><%= bd.maxlevel %></td>
+                <td><a href="../../bookDetails/<%=bd._id%>/spellbookView"><%= bd.class %></a></td>
+                <td><%= bd.maxLevel %></td>
                 <td><%= bd.restrictedSchools %></td>
-                <td><form action="/spellbooks/<%=bd._id%>?_method=DELETE" method="POST">
+                <td><form action="/spellbooks/<%=bd._id%>?_method=DELETE"  method="POST">
                     <button class="red-button" type="submit">X</button>
                   </form></td>
             <% } %>

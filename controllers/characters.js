@@ -47,14 +47,12 @@ function show(req, res){
 }
 
 function createChar(req, res){
-    console.log('create function fires')
     let newChar = new Character(req.body)
     newChar.player = req.user._id;
         newChar.save(function(err){
             if (err){
                 return res.redirect('/characters/new', {title: 'New Character',  })
             }
-            console.log('this is the new character',newChar)
             res.redirect('/characters')
         })
         }

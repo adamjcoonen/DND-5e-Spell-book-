@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<h1>Your <%= spellB.class  %>  spells info: </h1>
+
+<h3>Add spell:</h3>
+
+<ul id="spellsAvailible">
+    <li><h3>$Spells Availible$</h3></li>
+    
+    <form action="/bookDetails/:id/spellbookView" method="POST" >
+    <select name="spells" id="spellSelecter">
+      <% for (let sp of spells.results ) { %> 
+            
+        <option value=<%= sp.index %> > <%= JSON.stringify(sp.name).replace(`"`,``).replace(`"`,``) %> </option>
+        
+        <% } %> 
+        
+      </select>
+      <button  class="red-button" type="submit">Add Spell to Book</button>
+    </form>
+</ul>
