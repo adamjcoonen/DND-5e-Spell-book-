@@ -4,19 +4,25 @@ const Schema = mongoose.Schema;
 
 
 const spellsKnownSchema = new Schema({
-  spellDets: {}
-})
+  content: Object
+},
+{
+  timestamps: true
+});
 
 
 
-let spellBookSchema = new Schema({
+const spellBookSchema = new Schema({
   class: String,
   maxLevel: {
       type: Number,
       enum: [1,2,3,4,5,6,7,8,9]
   },
   restrictedSchools: String,
-  spellsKnown: {type: Schema.Types.Object, ref: 'spell'},
+  spellsKnown: [{
+    type: Schema.Types.Object,
+    ref: "spellsKnown"
+  }],
 })
 
 module.exports = mongoose.model('Spellbooks', spellBookSchema)

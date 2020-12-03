@@ -15,3 +15,7 @@ a {
 nav {
  text-align: right;
 }
+
+#spelllist {
+  padding: 0px 0px 0px 0px;
+}

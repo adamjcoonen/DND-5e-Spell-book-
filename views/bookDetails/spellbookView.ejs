@@ -5,9 +5,9 @@
 <h3>Add spell:</h3>
 
 <ul id="spellsAvailible">
-    <li><h3>$Spells Availible$</h3></li>
+    <li><h3>Spells Availible</h3></li>
     
-    <form action="/bookDetails/:id/spellbookView" method="POST" >
+    <form action="/bookDetails/<%=spellB._id%>/spellbookView" method="POST" >
     <select name="spells" id="spellSelecter">
       <% for (let sp of spells.results ) { %> 
             
@@ -19,3 +19,34 @@
       <button  class="red-button" type="submit">Add Spell to Book</button>
     </form>
 </ul>
+<h2>Spells Know List</h2>
+<table id="spelllist">
+  <thead id="spelllist">
+    <tr>
+  <th>Name</th> 
+  <th>Level</th>
+  <th>School</th>
+  <th>casting time</th>
+  </tr>
+</thead>
+  <tbody>
+    <% for ( i = 0; i < spellB.spellsKnown.length; i++){%> 
+    <tr>
+      <td><a onmouseover="showSpell('<%=spellB.spellsKnown[i]%>')"> <%= JSON.parse(spellB.spellsKnown[i]).name %> </a> </td>
+      <script>
+        function showSpell(spell){
+          JSON.parse(spell)
+          console.log("this is spell data", spell)
+        }
+      </script>
+      <td><%= JSON.parse(spellB.spellsKnown[i]).level %> </td>
+      <td><%= JSON.parse(spellB.spellsKnown[i]).school.name %> </td>
+      <td><%= JSON.parse(spellB.spellsKnown[i]).casting_time %> </td>
+    </tr>
+    <% } %> 
+  </tbody>
+  
+</table>
+  
+<div id='spell_full_desc' style="display: None;" > 
+  </div>

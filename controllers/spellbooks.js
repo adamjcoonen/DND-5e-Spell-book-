@@ -27,8 +27,6 @@ function deleteBook(req, res) {
 
 
 function show(req, res){
-    
-    
 Character.findById(req.params.id, function (err, charName) {
     Spellbooks.find(charName[{}], function(err, bDeats){ 
     if (err) {
